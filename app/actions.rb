@@ -14,8 +14,11 @@ post '/messages' do
     content: params[:content],
     author: params[:author]
   )
-  @message.save
-  redirect '/messages'
+  if @message.save
+    redirect '/messages'
+  else
+    erb :'messages/new'
+  end
 end
 
 # step 6 - even though it doesn't seem to be in the instructions (at least not explicitly),
