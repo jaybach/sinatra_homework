@@ -24,6 +24,7 @@ end
 # step 6 - even though it doesn't seem to be in the instructions (at least not explicitly),
 # the below also needs to be added
 get '/messages/new' do
+  @message = Message.new
   erb :'messages/new'
 end
 
